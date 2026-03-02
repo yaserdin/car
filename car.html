@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California Premium Car Rental</title>
+
+<style>
+
+/* ========== RESET ========== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI', sans-serif;
+  background:#111;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ========== HEADER ========== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:rgba(30,30,30,0.6);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{
+  color:#ffcc00;
+  font-size:28px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
+  position:relative;
+}
+
+nav li{
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+  position:relative;
+}
+
+nav li:hover{
+  color:#ffcc00;
+}
+
+/* ========== CONTACT DROPDOWN ========== */
+.dropdown-content{
+  position:absolute;
+  top:35px;
+  right:0;
+  background:rgba(40,40,40,0.95);
+  backdrop-filter:blur(8px);
+  padding:15px 20px;
+  border-radius:10px;
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  min-width:220px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+.dropdown-content div{
+  font-size:14px;
+  color:#ffcc00;
+}
+
+.show-dropdown{
+  display:flex;
+}
+
+/* ========== HERO BACKGROUND ========== */
+.hero{
+  position:relative;
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,204,0,0.3), transparent 40%),
+             radial-gradient(circle at 70% 70%, rgba(255,204,0,0.25), transparent 40%),
+             linear-gradient(45deg,#222,#444);
+  animation:bgMove 15s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* ========== CAR LIST ========== */
+.car-list{
+  display:flex;
+  gap:120px;
+  align-items:flex-end;
+}
+
+.car-item{
+  position:relative;
+  opacity:0;
+  transform:translateY(150px);
+  transition:1.5s ease;
+}
+
+.car-item img.car{
+  width:550px;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,0.8));
+  transition:.4s;
+}
+
+.car-item:hover img.car{
+  transform:scale(1.05);
+}
+
+.car-item img.driver{
+  position:absolute;
+  bottom:0;
+  right:-130px;
+  width:220px;
+  opacity:0;
+  transform:translateY(60px);
+  transition:1.2s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.show img.driver{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ========== BOOK BUTTON ========== */
+.book-btn{
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  padding:15px 30px;
+  font-size:18px;
+  font-weight:bold;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  background:linear-gradient(45deg,#ffcc00,#ffaa00);
+  color:#111;
+  box-shadow:0 0 20px rgba(255,204,0,0.7);
+  transition:.3s;
+  z-index:999;
+}
+
+.book-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 35px rgba(255,204,0,1);
+}
+
+/* ========== FOOTER ========== */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#888;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1200px){
+  .car-list{
+    flex-direction:column;
+    gap:80px;
+  }
+  .car-item img.car{
+    width:90%;
+  }
+  .car-item img.driver{
+    width:150px;
+    right:-60px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>California Premium Rental</h1>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Cars</li>
+      <li>About</li>
+      <li id="contactBtn">Contact
+        <div class="dropdown-content" id="contactMenu">
+          <div>📧 info@californiarental.com</div>
+          <div>📞 +1 213 555 9876</div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="car-list">
+
+    <div class="car-item">
+      <img src="car1.png" class="car">
+      <img src="driver1.png" class="driver">
+    </div>
+
+    <div class="car-item">
+      <img src="car2.png" class="car">
+      <img src="driver1.png" class="driver">
+    </div>
+
+  </div>
+</section>
+
+<button class="book-btn">Book Now</button>
+
+<footer>
+  © 2026 California Premium Car Rental
+</footer>
+
+<script>
+
+/* Reveal animation */
+window.addEventListener("load",()=>{
+  const cars=document.querySelectorAll(".car-item");
+  let delay=0;
+  cars.forEach(car=>{
+    setTimeout(()=>{
+      car.classList.add("show");
+    },delay);
+    delay+=700;
+  });
+});
+
+/* Contact Dropdown */
+document.getElementById("contactBtn").addEventListener("click",function(e){
+  e.stopPropagation();
+  document.getElementById("contactMenu").classList.toggle("show-dropdown");
+});
+
+document.addEventListener("click",function(){
+  document.getElementById("contactMenu").classList.remove("show-dropdown");
+});
+
+</script>
+
+</body>
+</html>
