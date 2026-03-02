@@ -7,7 +7,7 @@
 
 <style>
 
-/* ========== RESET ========== */
+/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
@@ -21,13 +21,13 @@ body{
   overflow-x:hidden;
 }
 
-/* ========== HEADER ========== */
+/* ================= HEADER ================= */
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
-  background:rgba(30,30,30,0.6);
+  background:rgba(30,30,30,0.7);
   backdrop-filter:blur(10px);
   position:sticky;
   top:0;
@@ -36,7 +36,7 @@ header{
 
 header h1{
   color:#ffcc00;
-  font-size:28px;
+  font-size:26px;
 }
 
 nav ul{
@@ -57,7 +57,7 @@ nav li:hover{
   color:#ffcc00;
 }
 
-/* ========== CONTACT DROPDOWN ========== */
+/* ================= CONTACT DROPDOWN ================= */
 .dropdown-content{
   position:absolute;
   top:35px;
@@ -82,16 +82,18 @@ nav li:hover{
   display:flex;
 }
 
-/* ========== HERO BACKGROUND ========== */
+/* ================= HERO ================= */
 .hero{
   position:relative;
-  height:90vh;
+  min-height:90vh;
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:40px;
   overflow:hidden;
 }
 
+/* Animated Background */
 .hero::before{
   content:"";
   position:absolute;
@@ -100,7 +102,7 @@ nav li:hover{
   background:radial-gradient(circle at 30% 30%, rgba(255,204,0,0.3), transparent 40%),
              radial-gradient(circle at 70% 70%, rgba(255,204,0,0.25), transparent 40%),
              linear-gradient(45deg,#222,#444);
-  animation:bgMove 15s linear infinite;
+  animation:bgMove 18s linear infinite;
   z-index:-1;
 }
 
@@ -109,22 +111,25 @@ nav li:hover{
   100%{transform:rotate(360deg);}
 }
 
-/* ========== CAR LIST ========== */
+/* ================= CAR LIST ================= */
 .car-list{
   display:flex;
-  gap:120px;
+  gap:100px;
   align-items:flex-end;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
 .car-item{
   position:relative;
   opacity:0;
-  transform:translateY(150px);
+  transform:translateY(120px);
   transition:1.5s ease;
 }
 
 .car-item img.car{
-  width:550px;
+  width:520px;
+  max-width:90vw;
   filter:drop-shadow(0 30px 40px rgba(0,0,0,0.8));
   transition:.4s;
 }
@@ -136,10 +141,11 @@ nav li:hover{
 .car-item img.driver{
   position:absolute;
   bottom:0;
-  right:-130px;
-  width:220px;
+  right:-100px;
+  width:200px;
+  max-width:40vw;
   opacity:0;
-  transform:translateY(60px);
+  transform:translateY(40px);
   transition:1.2s ease;
 }
 
@@ -153,13 +159,13 @@ nav li:hover{
   transform:translateY(0);
 }
 
-/* ========== BOOK BUTTON ========== */
+/* ================= BOOK BUTTON ================= */
 .book-btn{
   position:fixed;
-  bottom:40px;
-  right:40px;
-  padding:15px 30px;
-  font-size:18px;
+  bottom:30px;
+  right:30px;
+  padding:14px 28px;
+  font-size:17px;
   font-weight:bold;
   border:none;
   border-radius:50px;
@@ -172,11 +178,11 @@ nav li:hover{
 }
 
 .book-btn:hover{
-  transform:scale(1.1);
+  transform:scale(1.08);
   box-shadow:0 0 35px rgba(255,204,0,1);
 }
 
-/* ========== FOOTER ========== */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
   padding:20px;
@@ -184,19 +190,41 @@ footer{
   color:#888;
 }
 
-/* ========== RESPONSIVE ========== */
-@media(max-width:1200px){
+/* ================= MOBILE FIX ================= */
+@media (max-width: 992px){
+
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .hero{
+    padding:60px 20px;
+  }
+
   .car-list{
     flex-direction:column;
-    gap:80px;
+    align-items:center;
+    gap:120px;
   }
+
   .car-item img.car{
-    width:90%;
+    width:100%;
+    max-width:380px;
   }
+
   .car-item img.driver{
-    width:150px;
-    right:-60px;
+    width:120px;
+    right:-30px;
   }
+
+  .book-btn{
+    bottom:20px;
+    right:20px;
+    padding:12px 20px;
+    font-size:15px;
+  }
+
 }
 
 </style>
@@ -225,13 +253,13 @@ footer{
   <div class="car-list">
 
     <div class="car-item">
-      <img src="car1.png" class="car">
-      <img src="driver1.png" class="driver">
+      <img src="images/car1.png" class="car">
+      <img src="images/driver1.png" class="driver">
     </div>
 
     <div class="car-item">
-      <img src="car2.png" class="car">
-      <img src="driver1.png" class="driver">
+      <img src="images/car2.png" class="car">
+      <img src="images/driver2.png" class="driver">
     </div>
 
   </div>
