@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rashdan Premium Car Rental</title>
+<title>California Premium Car Rental</title>
 
 <style>
 
-/* ================= RESET ================= */
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
@@ -21,7 +21,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header{
   display:flex;
   justify-content:space-between;
@@ -43,7 +43,6 @@ nav ul{
   list-style:none;
   display:flex;
   gap:30px;
-  position:relative;
 }
 
 nav li{
@@ -57,13 +56,12 @@ nav li:hover{
   color:#ffcc00;
 }
 
-/* ================= CONTACT DROPDOWN ================= */
+/* ===== CONTACT DROPDOWN ===== */
 .dropdown-content{
   position:absolute;
   top:35px;
   right:0;
   background:rgba(40,40,40,0.95);
-  backdrop-filter:blur(8px);
   padding:15px 20px;
   border-radius:10px;
   display:none;
@@ -82,7 +80,7 @@ nav li:hover{
   display:flex;
 }
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero{
   position:relative;
   min-height:90vh;
@@ -93,7 +91,7 @@ nav li:hover{
   overflow:hidden;
 }
 
-/* Animated Background */
+/* Animated background */
 .hero::before{
   content:"";
   position:absolute;
@@ -111,7 +109,7 @@ nav li:hover{
   100%{transform:rotate(360deg);}
 }
 
-/* ================= CAR LIST ================= */
+/* ===== CAR LIST ===== */
 .car-list{
   display:flex;
   gap:100px;
@@ -127,18 +125,18 @@ nav li:hover{
   transition:1.5s ease;
 }
 
-.car-item img.car1{
+.car-item img.car{
   width:520px;
   max-width:90vw;
   filter:drop-shadow(0 30px 40px rgba(0,0,0,0.8));
   transition:.4s;
 }
 
-.car-item:hover img.car2{
+.car-item:hover img.car{
   transform:scale(1.05);
 }
 
-.car-item img.driver1{
+.car-item img.driver{
   position:absolute;
   bottom:0;
   right:-100px;
@@ -154,12 +152,12 @@ nav li:hover{
   transform:translateY(0);
 }
 
-.show img.driver1{
+.show img.driver{
   opacity:1;
   transform:translateY(0);
 }
 
-/* ================= BOOK BUTTON ================= */
+/* ===== BOOK BUTTON ===== */
 .book-btn{
   position:fixed;
   bottom:30px;
@@ -182,7 +180,7 @@ nav li:hover{
   box-shadow:0 0 35px rgba(255,204,0,1);
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:20px;
@@ -190,7 +188,7 @@ footer{
   color:#888;
 }
 
-/* ================= MOBILE FIX ================= */
+/* ===== MOBILE ===== */
 @media (max-width: 992px){
 
   header{
@@ -208,12 +206,12 @@ footer{
     gap:120px;
   }
 
-  .car-item img.car2{
+  .car-item img.car{
     width:100%;
     max-width:380px;
   }
 
-  .car-item img.driver1{
+  .car-item img.driver{
     width:120px;
     right:-30px;
   }
@@ -224,7 +222,6 @@ footer{
     padding:12px 20px;
     font-size:15px;
   }
-
 }
 
 </style>
@@ -253,13 +250,13 @@ footer{
   <div class="car-list">
 
     <div class="car-item">
-      <img src="images/car1.png" class="car">
-      <img src="images/driver1.png" class="driver">
+      <img src="car1.png" class="car">
+      <img src="driver1.png" class="driver">
     </div>
 
     <div class="car-item">
-      <img src="images/car2.png" class="car">
-      <img src="images/driver2.png" class="driver">
+      <img src="car2.png" class="car">
+      <img src="driver2.png" class="driver">
     </div>
 
   </div>
@@ -299,5 +296,3 @@ document.addEventListener("click",function(){
 
 </body>
 </html>
-
-
